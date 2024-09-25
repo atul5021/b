@@ -64,3 +64,22 @@ for i in range (1, n+1):
 t4 = time.time()
 print(f" time1 {t2-t1:.6f} sec")
 print(f" time2 {t4-t3:.6f} sec")
+
+#Accept and reject
+
+def FA(s):
+    if len(s) < 3:  # Ensure the string has at least 3 characters
+        return "Rejected"
+    if s[0] == '1':
+        if s[1] == '0':
+            if s[2] == '1':
+                for i in range(3, len(s)):  # Check from the 4th character onward
+                    if s[i] != '1':
+                        return "Rejected"
+                return "Accepted"
+            return "Rejected"
+        return "Rejected"
+    return "Rejected"
+input_list = ['101', '1110', '11111', '10111', '0101', '0000']
+for i in input_list:
+    print(f"Input: {i}, Result: {FA(i)}")
